@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'fluent-button',
+  selector: 'button[fluent-button]',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })

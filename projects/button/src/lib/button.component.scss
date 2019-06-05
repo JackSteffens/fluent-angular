@@ -2,72 +2,69 @@
 
 :host {
   &:not([disabled]) {
-    &.light-1 > button {
+    &.light-1 {
       color: $Black;
       background-color: $GrayLight1;
     }
 
-    &.light-2 > button {
+    &.light-2 {
       color: $Black;
       background-color: $GrayLight2;
     }
 
-    &.light-3 > button {
+    &.light-3 {
       color: $Black;
       background-color: $GrayLight3;
     }
 
-    &.dark-1 > button {
+    &.dark-1 {
       color: $White;
       background-color: $GrayDark1;
     }
 
-    &.dark-2 > button {
+    &.dark-2 {
       color: $White;
       background-color: $GrayDark2;
     }
 
-    &.dark-3 > button {
+    &.dark-3 {
       color: $White;
       background-color: $GrayDark3;
     }
 
-    button {
-      margin: 2px;
-      color: $Black;
-      background-color: $Gray;
-      transition-property: transform;
-      transition-duration: .3s;
-      transition-timing-function: ease-out;
+    margin: 2px;
+    color: $Black;
+    background-color: $Gray;
+    transition-property: transform;
+    transition-duration: .3s;
+    transition-delay: .15s;
+    transition-timing-function: ease-out;
 
-      &:active {
-        background-color: $GrayDark3;
-        transform: scale(.975);
-        transition-duration: 0s;
-      }
+    &:active {
+      background-color: $GrayDark3;
+      transform: scale(.975);
+      transition-duration: 0s;
+    }
 
-      &:hover {
-        border: 3px solid $GrayDark3
-      }
+    &:hover {
+      border-color: $GrayDark3;
+    }
 
-      &:focus:not(:hover):not(:active) {
-        outline: 1px solid $Black;
-      }
+    &:focus:not(:hover):not(:active) {
+      outline: 1px solid $Black;
     }
   }
 
   &[disabled] {
-    button {
-      color: $GrayDark3;
-      background-color: $Gray;
-    }
+    color: $GrayDark3;
+    background-color: $Gray;
   }
 
-  button {
-    padding: .5em .75em;
-    border: 3px solid transparent;
-    outline: 0;
-  }
+  padding: .5em .75em;
+  border-width: 2px;
+  border-color: transparent;
+  border-style: solid;
+  outline: 0;
 }
 
 
