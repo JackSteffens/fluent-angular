@@ -1,0 +1,207 @@
+@import '../../../style/fluent-colors.scss';
+
+:host {
+  &:not([disabled]) {
+    &.fluent-primary > div {
+      color: $White;
+      background-color: $Primary;
+    }
+
+    &.fluent-accent > div {
+      color: $White;
+      background-color: $Accent;
+    }
+
+    &.fluent-warn > div {
+      color: $White;
+      background-color: $Warn;
+    }
+
+    &.light-1 {
+      div {
+        color: $Black;
+        background-color: $BaseLight1;
+      }
+
+      &.fluent-primary > div {
+        background-color: $PrimaryLight1;
+      }
+
+      &.fluent-accent > div {
+        background-color: $AccentLight1;
+      }
+
+      &.fluent-warn > div {
+        background-color: $WarnLight1;
+      }
+    }
+
+    &.light-2 {
+      div {
+        color: $Black;
+        background-color: $BaseLight2;
+      }
+
+      &.fluent-primary > div {
+        background-color: $PrimaryLight2;
+      }
+
+      &.fluent-accent > div {
+        background-color: $AccentLight2;
+      }
+
+      &.fluent-warn > div {
+        background-color: $WarnLight2;
+      }
+    }
+
+    &.light-3 {
+      div {
+        color: $Black;
+        background-color: $BaseLight3;
+      }
+
+      &.fluent-primary > div {
+        background-color: $PrimaryLight3;
+      }
+
+      &.fluent-accent > div {
+        background-color: $AccentLight3;
+      }
+
+      &.fluent-warn > div {
+        background-color: $WarnLight3;
+      }
+    }
+
+    &.dark-1 {
+      div {
+        color: $White;
+        background-color: $BaseDark1;
+      }
+
+      &.fluent-primary > div {
+        background-color: $PrimaryDark1;
+      }
+
+      &.fluent-accent > div {
+        background-color: $AccentDark1;
+      }
+
+      &.fluent-warn > div {
+        background-color: $WarnDark1;
+      }
+    }
+
+    &.dark-2 {
+      div {
+        color: $White;
+        background-color: $BaseDark2;
+      }
+
+      &.fluent-primary > div {
+        background-color: $PrimaryDark2;
+      }
+
+      &.fluent-accent > div {
+        background-color: $AccentDark2;
+      }
+
+      &.fluent-warn > div {
+        background-color: $WarnDark2;
+      }
+    }
+
+    &.dark-3 {
+      div {
+        color: $White;
+        background-color: $BaseDark3;
+      }
+
+      &.fluent-primary > div {
+        background-color: $PrimaryDark3;
+      }
+
+      &.fluent-accent > div {
+        background-color: $AccentDark3;
+      }
+
+      &.fluent-warn > div {
+        background-color: $WarnDark3;
+      }
+    }
+
+    div {
+      color: $Black;
+      background-color: $Base;
+      transition-property: transform;
+      transition-duration: .3s;
+      transition-delay: .15s;
+      transition-timing-function: ease-out;
+    }
+
+    &:active {
+      div {
+        background-color: $BaseDark3;
+        transform: scale(.975);
+        transition-delay: 0s;
+        transition-duration: 0s;
+      }
+
+      &.fluent-primary > div {
+        background-color: $PrimaryDark3;
+      }
+
+      &.fluent-accent > div {
+        background-color: $AccentDark3;
+      }
+
+      &.fluent-warn > div {
+        background-color: $WarnDark3;
+      }
+    }
+
+    &:hover {
+      div {
+        border-color: $BaseDark3;
+      }
+
+      &.fluent-primary > div {
+        border-color: $PrimaryDark3;
+      }
+
+      &.fluent-accent > div {
+        border-color: $AccentDark3;
+      }
+
+      &.fluent-warn > div {
+        border-color: $WarnDark3;
+      }
+    }
+
+    &:focus:not(:hover):not(:active) {
+      outline: 2px solid $Black;
+    }
+  }
+
+  &[disabled] > div {
+    color: $BaseDark3;
+    background-color: $Base;
+  }
+
+  div {
+    padding: .5em .75em;
+    border-width: 2px;
+    border-color: transparent;
+    border-style: solid;
+  }
+
+  padding: 1px;
+  border: none;
+  background-color: transparent;
+  outline: 0;
+}
+
+
+
+

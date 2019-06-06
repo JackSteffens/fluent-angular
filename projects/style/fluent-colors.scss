@@ -1,0 +1,42 @@
+$AliceBlue: #F0F8FF;
+$AntiqueWhite: #FAEBD7;
+$Black: #000;
+$White: #FFF;
+
+// Blue
+$Primary: #0073CF;
+$PrimaryLight3: lighten($Primary, 40%);
+$PrimaryLight2: lighten($Primary, 20%);
+$PrimaryLight1: lighten($Primary, 10%);
+$PrimaryDark1: darken($Primary, 10%);
+$PrimaryDark2: darken($Primary, 20%);
+$PrimaryDark3: darken($Primary, 25%);
+
+
+// Gray
+$Base: rgb(204, 204, 204);
+$BaseLight3: lighten($Base, 20%);
+$BaseLight2: lighten($Base, 15%);
+$BaseLight1: lighten($Base, 10%);
+$BaseDark1: darken($Base, 10%);
+$BaseDark2: darken($Base, 20%);
+$BaseDark3: darken($Base, 30%);
+
+// Accent
+$Accent: #00B7C3;
+$AccentLight3: lighten($Accent, 55%);
+$AccentLight2: lighten($Accent, 40%);
+$AccentLight1: lighten($Accent, 20%);
+$AccentDark1: darken($Accent, 10%);
+$AccentDark2: darken($Accent, 15%);
+$AccentDark3: darken($Accent, 20%);
+
+// Warn
+$Warn: #FF4343;
+$WarnLight3: lighten($Warn, 30%);
+$WarnLight2: lighten($Warn, 20%);
+$WarnLight1: lighten($Warn, 10%);
+$WarnDark1: darken($Warn, 10%);
+$WarnDark2: darken($Warn, 20%);
+$WarnDark3: darken($Warn, 30%);
+
