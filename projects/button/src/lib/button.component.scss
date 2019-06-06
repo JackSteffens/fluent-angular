@@ -134,19 +134,16 @@
     div {
       color: $Black;
       background-color: $Base;
-      transition-property: transform;
-      transition-duration: .3s;
-      transition-delay: .15s;
-      transition-timing-function: ease-out;
     }
 
     &:active {
       div {
         background-color: $BaseDark3;
-        transform: scale(.975);
-        transition-delay: 0s;
-        transition-duration: 0s;
       }
+
+      transform: scale(.975);
+      transition-delay: 0s;
+      transition-duration: 0s;
 
       &.fluent-primary > div {
         background-color: $PrimaryDark3;
@@ -195,6 +192,19 @@
     border-color: transparent;
     border-style: solid;
   }
+
+  &[fluentReveal] {
+    padding: 0;
+
+    div {
+      border-width: 0;
+    }
+  }
+
+  transition-property: transform;
+  transition-duration: .3s;
+  transition-delay: .15s;
+  transition-timing-function: ease-out;
 
   padding: 1px;
   border: none;

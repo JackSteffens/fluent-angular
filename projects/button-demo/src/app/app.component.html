@@ -10,110 +10,112 @@
   `dark-1`    : 10% darker than the base color
   `dark-2`    : 20% darker than the base color
   `dark-3`    : 30% darker than the base color
--->
-<fieldset>
-  <legend>Default</legend>
-  <button fluent-button class="light-3" (click)="onClick('Light 3')">Default Light 3</button>
-  <button fluent-button class="light-2" (click)="onClick('Light 2')">Default Light 2</button>
-  <button fluent-button class="light-1" (click)="onClick('Light 1')">Default Light 1</button>
-  <button fluent-button (click)="onClick('Default')">Default</button>
-  <button fluent-button class="dark-1" (click)="onClick('Dark 1')">Default Dark 1</button>
-  <button fluent-button class="dark-2" (click)="onClick('Dark 2')">Default Dark 2</button>
-  <button fluent-button class="dark-3" (click)="onClick('Dark 3')">Default Dark 3</button>
-</fieldset>
 
-<br>
-
-<!--
   The light & dark classes classes can be combined with the following tint classes:
   `fluent-warn`     : a warning tint (by default red)
   `fluent-accent`   : an accent tint (by default ???)
   `fluent-primary`  : the primary tint (by default blue)
 -->
 <fieldset>
-  <legend>Themes</legend>
-
+  <legend>Basic Usage</legend>
   <div style="display: flex; flex-direction: row;">
+    <!-- default -->
+    <div style="display: flex; flex-direction: column; justify-content: center; width:150px; align-items: stretch;">
+      <button fluent-button [disabled]="isDisabled" class="light-3" (click)="onClick('Light 3')">
+        Default Light 3
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="light-2" (click)="onClick('Light 2')">
+        Default Light 2
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="light-1" (click)="onClick('Light 1')">
+        Default Light 1
+      </button>
+      <button fluent-button [disabled]="isDisabled" (click)="onClick('Default')">
+        Default
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="dark-1" (click)="onClick('Dark 1')">
+        Default Dark 1
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="dark-2" (click)="onClick('Dark 2')">
+        Default Dark 2
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="dark-3" (click)="onClick('Dark 3')">
+        Default Dark 3
+      </button>
+    </div>
     <!-- fluent-accent -->
     <div style="display: flex; flex-direction: column; justify-content: center; width:150px; align-items: stretch;">
-      <button fluent-button class="fluent-accent light-3" (click)="onClick('Accent')">Accent Light 3</button>
-      <button fluent-button class="fluent-accent light-2" (click)="onClick('Accent')">Accent Light 2</button>
-      <button fluent-button class="fluent-accent light-1" (click)="onClick('Accent')">Accent Light 1</button>
-      <button fluent-button class="fluent-accent" (click)="onClick('Accent')">Accent Default</button>
-      <button fluent-button class="fluent-accent dark-1" (click)="onClick('Accent')">Accent Dark 1</button>
-      <button fluent-button class="fluent-accent dark-2" (click)="onClick('Accent')">Accent Dark 2</button>
-      <button fluent-button class="fluent-accent dark-3" (click)="onClick('Accent')">Accent Dark 3</button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-accent light-3" (click)="onClick('Accent')">
+        Accent Light 3
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-accent light-2" (click)="onClick('Accent')">
+        Accent Light 2
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-accent light-1" (click)="onClick('Accent')">
+        Accent Light 1
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-accent" (click)="onClick('Accent')">
+        Accent Default
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-accent dark-1" (click)="onClick('Accent')">
+        Accent Dark 1
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-accent dark-2" (click)="onClick('Accent')">
+        Accent Dark 2
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-accent dark-3" (click)="onClick('Accent')">
+        Accent Dark 3
+      </button>
     </div>
-
     <!-- fluent-primary -->
     <div style="display: flex; flex-direction: column; justify-content: center; width:150px; align-items: stretch;">
-      <button fluent-button class="fluent-primary light-3" (click)="onClick('Primary')">Primary Light 3</button>
-      <button fluent-button class="fluent-primary light-2" (click)="onClick('Primary')">Primary Light 2</button>
-      <button fluent-button class="fluent-primary light-1" (click)="onClick('Primary')">Primary Light 1</button>
-      <button fluent-button class="fluent-primary" (click)="onClick('Primary')">Primary Default</button>
-      <button fluent-button class="fluent-primary dark-1" (click)="onClick('Primary')">Primary Dark 1</button>
-      <button fluent-button class="fluent-primary dark-2" (click)="onClick('Primary')">Primary Dark 2</button>
-      <button fluent-button class="fluent-primary dark-3" (click)="onClick('Primary')">Primary Dark 3</button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-primary light-3" (click)="onClick('Primary')">
+        Primary Light 3
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-primary light-2" (click)="onClick('Primary')">
+        Primary Light 2
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-primary light-1" (click)="onClick('Primary')">
+        Primary Light 1
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-primary" (click)="onClick('Primary')">
+        Primary Default
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-primary dark-1" (click)="onClick('Primary')">
+        Primary Dark 1
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-primary dark-2" (click)="onClick('Primary')">
+        Primary Dark 2
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-primary dark-3" (click)="onClick('Primary')">
+        Primary Dark 3
+      </button>
     </div>
-
     <!-- fluent-warn -->
     <div style="display: flex; flex-direction: column; justify-content: center; width:150px; align-items: stretch;">
-      <button fluent-button class="fluent-warn light-3" (click)="onClick('Warn')">Warn Light 3</button>
-      <button fluent-button class="fluent-warn light-2" (click)="onClick('Warn')">Warn Light 2</button>
-      <button fluent-button class="fluent-warn light-1" (click)="onClick('Warn')">Warn Light 1</button>
-      <button fluent-button class="fluent-warn" (click)="onClick('Warn')">Warn Default</button>
-      <button fluent-button class="fluent-warn dark-1" (click)="onClick('Warn')">Warn Dark 1</button>
-      <button fluent-button class="fluent-warn dark-2" (click)="onClick('Warn')">Warn Dark 2</button>
-      <button fluent-button class="fluent-warn dark-3" (click)="onClick('Warn')">Warn Dark 3</button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-warn light-3" (click)="onClick('Warn')">
+        Warn Light 3
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-warn light-2" (click)="onClick('Warn')">
+        Warn Light 2
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-warn light-1" (click)="onClick('Warn')">
+        Warn Light 1
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-warn" (click)="onClick('Warn')">
+        Warn Default
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-warn dark-1" (click)="onClick('Warn')">
+        Warn Dark 1
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-warn dark-2" (click)="onClick('Warn')">
+        Warn Dark 2
+      </button>
+      <button fluent-button [disabled]="isDisabled" class="fluent-warn dark-3" (click)="onClick('Warn')">
+        Warn Dark 3
+      </button>
     </div>
   </div>
-</fieldset>
-
-<br>
-
-<fieldset>
-  <legend>Disabled buttons</legend>
-  <button fluent-button
-          class="light-3"
-          [disabled]="isDisabled"
-          (click)="onClick('Disabled')">
-    {{isDisabled ? 'Disabled' : 'Enabled'}} Light 3
-  </button>
-  <button fluent-button
-          [disabled]="isDisabled"
-          (click)="onClick('Disabled')">
-    {{isDisabled ? 'Disabled' : 'Enabled'}} Default
-  </button>
-  <button fluent-button
-          class="dark-3"
-          [disabled]="isDisabled"
-          (click)="onClick('Disabled')">
-    {{isDisabled ? 'Disabled' : 'Enabled'}} Dark 3
-  </button>
-
-  <br>
-
-  <button fluent-button
-          class="fluent-accent"
-          [disabled]="isDisabled"
-          (click)="onClick('Disabled')">
-    {{isDisabled ? 'Disabled' : 'Enabled'}} Accent
-  </button>
-  <button fluent-button
-          class="fluent-primary"
-          [disabled]="isDisabled"
-          (click)="onClick('Disabled')">
-    {{isDisabled ? 'Disabled' : 'Enabled'}} Primary
-  </button>
-  <button fluent-button
-          class="fluent-warn"
-          [disabled]="isDisabled"
-          (click)="onClick('Disabled')">
-    {{isDisabled ? 'Disabled' : 'Enabled'}} Warn
-  </button>
-
-  <br>
-
   <label><input type="checkbox" [(ngModel)]="isDisabled">Disabled {{isDisabled}}</label>
 </fieldset>
 
@@ -142,6 +144,26 @@
     Segoe MDL2 Assets icon
   </button>
   <button fluent-button><img width="100" height="100" src="../assets/button_image.png"/></button>
+</fieldset>
+
+<br>
+
+<fieldset>
+  <legend>Button + Reveal</legend>
+
+  <button fluent-button fluentReveal>Button with Reveal</button>
+  <button fluent-button fluentReveal>One</button>
+  <button fluent-button fluentReveal>Two</button>
+  <button fluent-button fluentReveal>Three</button>
+
+  <div style="height:200px; width:200px; background-color:rgba(255,0,0,.5);" fluentReveal>
+    Content with Reveal
+  </div>
+
+  <span fluentReveal>Span with reveal, because why not</span>
+
+  <p>Fluent performance test</p>
+  <button fluent-button fluentReveal *ngFor="let x of list">Button #{{x}}</button>
 </fieldset>
 
 
