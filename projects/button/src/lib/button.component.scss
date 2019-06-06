@@ -158,7 +158,7 @@
       }
     }
 
-    &:hover {
+    &:hover:not([fluentReveal]) {
       div {
         border-color: $BaseDark3;
       }
@@ -176,7 +176,7 @@
       }
     }
 
-    &:focus:not(:hover):not(:active) {
+    &:focus:not(:hover):not(:active), &[fluentReveal]:focus:not(:active) {
       outline: 2px solid $Black;
     }
   }
@@ -186,19 +186,15 @@
     background-color: $Base;
   }
 
+  &[fluentReveal] {
+    padding: 0;
+  }
+
   div {
     padding: .5em .75em;
     border-width: 2px;
     border-color: transparent;
     border-style: solid;
-  }
-
-  &[fluentReveal] {
-    padding: 0;
-
-    div {
-      border-width: 0;
-    }
   }
 
   transition-property: transform;
