@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   public isDisabled = true;
-  public list = Array(10).fill('GENERATED');
+  public list = Array(5).fill('GENERATED');
 
   public onClick(text: string): void {
     console.log('clicked', text);

@@ -151,10 +151,18 @@
 <fieldset>
   <legend>Button + Reveal</legend>
 
-  <button fluent-button fluentReveal revealRadialColor="red">Button with Reveal</button>
+  <button fluent-button
+          fluentReveal
+          revealRadialColor="red"
+          [revealThickness]="10"
+          [revealMargin]="2">
+    With Reveal options
+  </button>
   <button fluent-button fluentReveal>One</button>
-  <button fluent-button fluentReveal [revealThickness]="10" [revealMargin]="2">Two</button>
-  <button fluent-button fluentReveal>Three</button>
+  <button fluent-button fluentReveal>✌</button>
+  <button fluent-button fluentReveal>
+    <i fluent-icon-name="ThreeBars"></i>
+  </button>
 
   <div style="height:200px; width:200px; background-color:rgba(255,0,0,.5);" fluentReveal>
     Content with Reveal
@@ -162,7 +170,7 @@
 
   <span fluentReveal [revealThickness]="2">Span with reveal, because why not</span>
 
-  <p>Fluent performance test</p>
+  <p><b>Generated with ngFor</b></p>
   <button fluent-button fluentReveal *ngFor="let x of list">{{x}}</button>
 </fieldset>
 

@@ -97,30 +97,26 @@ export class FluentRevealDirective implements OnInit {
     this.renderer.setStyle(element, 'margin', `${this.revealThickness + this.revealMargin}px`);
 
     // Border Clipping
-    const width: number = this.hostElement.nativeElement.getBoundingClientRect().width;
-    const height: number = this.hostElement.nativeElement.getBoundingClientRect().height;
-
-    // TODO Use calc() instead!!! When the contents update, the size doesn't update
     const topLeft = `${this.revealThickness}px ${this.revealThickness}px`;
-    const topRight = `${Math.floor(width) + this.revealThickness}px ${this.revealThickness}px`;     // 75% 25%
-    const bottomRight = `${Math.floor(width) + this.revealThickness}px ${Math.floor(height) + this.revealThickness}px`;  // 75% 75%
-    const bottomLeft = `${this.revealThickness}px ${Math.floor(height) + this.revealThickness}px`;   // 25% 75%
-    const endStitch = `${this.revealThickness}px ${Math.ceil(height) + (this.revealThickness * 2)}px`;   // 25% 100%
+    const topRight = `calc(100% + -${this.revealThickness}px) ${this.revealThickness}px`;     // 75% 25%
+    const bottomRight = `calc(100% + -${this.revealThickness}px) calc(100% + -${this.revealThickness}px)`;  // 75% 75%
+    const bottomLeft = `${this.revealThickness}px calc(100% + -${this.revealThickness}px)`;   // 25% 75%
+    const endStitch = `${this.revealThickness}px calc(100% + ${(this.revealThickness)}px)`;   // 25% 100%
 
     this.renderer.setStyle(
       this.borderElement,
       'clip-path',
       `polygon(
       0px 0px,
-      0px ${Math.ceil(height) + (this.revealThickness * 2)}px,
+      0px calc(100% + ${(this.revealThickness * 2)}px),
       ${endStitch},
       ${topLeft},
       ${topRight},
       ${bottomRight},
       ${bottomLeft},
       ${endStitch},
-      ${Math.ceil(width) + (this.revealThickness * 2)}px ${Math.ceil(height) + (this.revealThickness * 2)}px,
-      ${Math.ceil(width) + (this.revealThickness * 2)}px 0px
+      calc(100% + ${(this.revealThickness * 2)}px) 100%,
+      calc(100% + ${(this.revealThickness * 2)}px) 0px
       )`
     );
     this.renderer.appendChild(this.hostElement.nativeElement, this.borderElement);
