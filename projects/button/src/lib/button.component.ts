@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'button[fluent-button]',
@@ -6,12 +6,12 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./button.component.scss']
 })
 export class FluentButton implements OnInit {
-  @Input() disabled = false;
 
   constructor() {
   }
 
   ngOnInit() {
+    console.log();
   }
 
 }

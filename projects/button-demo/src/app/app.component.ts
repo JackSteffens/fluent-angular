@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {FluentButton} from '../../../button/src/lib/button.component';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +6,9 @@ import {FluentButton} from '../../../button/src/lib/button.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'button-demo';
+  public isDisabled = true;
+
+  public onClick(text: string): void {
+    console.log('clicked', text);
+  }
 }
