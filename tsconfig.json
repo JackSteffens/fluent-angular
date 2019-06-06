@@ -6,6 +6,7 @@
     "sourceMap": true,
     "declaration": false,
     "module": "es2015",
+    "resolveJsonModule": true,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -24,6 +25,12 @@
       ],
       "button/*": [
         "dist/button/*"
+      ],
+      "fluent-icon": [
+        "dist/fluent-icon"
+      ],
+      "fluent-icon/*": [
+        "dist/fluent-icon/*"
       ]
     }
   }
