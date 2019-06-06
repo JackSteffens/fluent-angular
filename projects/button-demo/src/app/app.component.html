@@ -90,6 +90,30 @@
           (click)="onClick('Disabled')">
     {{isDisabled ? 'Disabled' : 'Enabled'}} Dark 3
   </button>
+
+  <br>
+
+  <button fluent-button
+          class="fluent-accent"
+          [disabled]="isDisabled"
+          (click)="onClick('Disabled')">
+    {{isDisabled ? 'Disabled' : 'Enabled'}} Accent
+  </button>
+  <button fluent-button
+          class="fluent-primary"
+          [disabled]="isDisabled"
+          (click)="onClick('Disabled')">
+    {{isDisabled ? 'Disabled' : 'Enabled'}} Primary
+  </button>
+  <button fluent-button
+          class="fluent-warn"
+          [disabled]="isDisabled"
+          (click)="onClick('Disabled')">
+    {{isDisabled ? 'Disabled' : 'Enabled'}} Warn
+  </button>
+
+  <br>
+
   <label><input type="checkbox" [(ngModel)]="isDisabled">Disabled {{isDisabled}}</label>
 </fieldset>
 
