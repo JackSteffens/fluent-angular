@@ -6,8 +6,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public isDisabled = true;
-  public list = Array(5).fill('GENERATED');
+  public isDisabled = false;
 
   public onClick(text: string): void {
     console.log('clicked', text);

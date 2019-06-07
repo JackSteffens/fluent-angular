@@ -148,7 +148,7 @@
 
 <br>
 
-<fieldset>
+<fieldset id="coolFieldSet">
   <legend>Button + Reveal</legend>
 
   <button fluent-button
@@ -165,13 +165,28 @@
   </button>
 
   <div style="height:200px; width:200px; background-color:rgba(255,0,0,.5);" fluentReveal>
-    Content with Reveal
+    Div including content with Reveal
   </div>
 
   <span fluentReveal [revealThickness]="2">Span with reveal, because why not</span>
 
   <p><b>Generated with ngFor</b></p>
-  <button fluent-button fluentReveal *ngFor="let x of list">{{x}}</button>
+  <table>
+    <tbody>
+    <tr *ngFor="let y of [0,1]">
+      <td *ngFor="let x of [1,2,3]">
+        <button fluent-button
+                fluentReveal
+                class="fluent-primary"
+                revealRadialColor="#00579C"
+                parentElement="coolFieldSet"
+                [revealThickness]="1">
+          Button {{x * y + x}}
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </fieldset>
 
 
