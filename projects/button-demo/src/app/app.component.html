@@ -175,12 +175,13 @@
   <div style="display: flex;flex-direction: row;flex-wrap: wrap;">
     <button fluent-button
             fluentReveal
+            parentElement="coolFieldSet"
             [disabled]="isDisabled"
             [fluentReveal]="isRevealEnabled"
             [ngClass]="[mainColor, colorTint]"
-            parentElement="coolFieldSet"
-            [revealMargin]="1"
-            [revealThickness]="1"
+            [revealMargin]="revealMargin"
+            [revealThickness]="revealBorderThickness"
+            [revealRadialDiameter]="revealRadialDiameter"
             *ngFor="let b of buttonList; index as i">
       Button {{i}}
     </button>
@@ -209,10 +210,24 @@
       <label><input type="radio" name="colorTint" [(ngModel)]="colorTint" value="dark-3">Dark 3</label>
     </div>
 
-    <label>
-      <input type="number" min="0" step="1" [(ngModel)]="buttonCount" (change)="onButtonCountChange()">
-      Button Count
-    </label>
+    <div style="display:flex;flex-direction: column">
+      <label>
+        <input type="number" min="0" step="1" [(ngModel)]="buttonCount" (change)="onButtonCountChange()">
+        Button Count
+      </label>
+      <label>
+        <input type="number" min="1" step="1" [(ngModel)]="revealRadialDiameter">
+        Radial Diameter
+      </label>
+      <label>
+        <input type="number" min="0" step="1" [(ngModel)]="revealBorderThickness">
+        Border Thickness
+      </label>
+      <label>
+        <input type="number" min="0" step="1" [(ngModel)]="revealMargin">
+        Margin
+      </label>
+    </div>
 
   </div>
 </fieldset>

@@ -153,7 +153,7 @@ export class RevealService {
    * @return a coordinate relative to the element
    */
   public getRadialCenterPoint(elementPosition, mousePosition): number {
-    return 0 - elementPosition + mousePosition;
+    return mousePosition - elementPosition;
   }
 
   /**
@@ -193,7 +193,7 @@ export class RevealService {
    * position is absolute to not conflict with the host's content
    * z-index set to a negative value to not overlap the host's content
    *
-   * @param revealThickness number in pixels
+   * @param revealThickness number in pixels TODO Can be removed?
    * @param defaultBorderColor any color value accepted by CSS
    *        Color examples :
    *        Name       : red

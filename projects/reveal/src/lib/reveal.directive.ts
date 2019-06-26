@@ -117,19 +117,23 @@ export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
     this.revealService.appendBorderElementToHostElement(this.hostElement.nativeElement, this.borderElement);
   }
 
+  /**
+   * TODO jsdoc
+   */
   private initMouseEventListeners() {
-    const elem = this.parentElement ? document.getElementById(this.parentElement) : document;
-    if (elem) {
-      this.mouseLeaveSubscription = this.revealService.getMouseLeaveEventObservable(elem)
+    const element: Element | Document = this.parentElement ? document.getElementById(this.parentElement) : document;
+    if (element) {
+      this.mouseLeaveSubscription = this.revealService
+        .getMouseLeaveEventObservable(element)
         .subscribe(() => {
-          console.log('mouse leave on : ', this.parentElement || 'document');
           this.clearRevealBorder();
         });
 
-      this.mouseMoveSubscription = this.revealService.getMouseOverEventObservable(elem)
+      this.mouseMoveSubscription = this.revealService
+        .getMouseOverEventObservable(element)
         .subscribe((event: MouseEvent) => {
           if (event) {
-            this.validatePositionAndRenderRevealBorder(event.x, event.y);
+            this.validatePositionAndRenderRevealBorder(event.clientX, event.clientY);
           }
         });
     } else {
@@ -137,7 +141,9 @@ export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  // TODO Unfinished
+  /**
+   * TODO Add jsdoc
+   */
   destroyListeners() {
     unsubscribeFromObservable(this.mouseMoveSubscription);
     unsubscribeFromObservable(this.mouseLeaveSubscription);
@@ -151,10 +157,9 @@ export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
     }
   }
 
-  ngOnDestroy(): void {
-    this.destroyListeners();
-  }
-
+  /**
+   * TODO jsdoc
+   */
   toggleRevealOff(): void {
     this.fluentReveal = false;
     if (this.borderElement) {
@@ -163,6 +168,9 @@ export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
     }
   }
 
+  /**
+   * TODO jsdoc
+   */
   toggleRevealOn(): void {
     this.fluentReveal = true;
     if (this.borderElement) {
@@ -179,10 +187,23 @@ export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     const revealEnabled: boolean = changes.fluentReveal ? changes.fluentReveal.currentValue : this.fluentReveal;
-    if (revealEnabled === false) {
+    if (changes.fluentReveal && revealEnabled === false) {
       this.toggleRevealOff();
-    } else { // true or null (no value on attribute means ON)
+    } else if (changes.fluentReveal) { // true or null (no value on attribute means ON)
       this.toggleRevealOn();
     }
+
+    if (changes.revealThickness && this.borderElement) {
+      this.revealService.prepHostElementForReveal(this.hostElement.nativeElement, this.revealThickness, this.revealMargin);
+      this.revealService.clipBorderElementFrameShape(this.borderElement, this.revealThickness);
+    }
+
+    if (changes.revealMargin && this.borderElement) {
+      this.revealService.prepHostElementForReveal(this.hostElement.nativeElement, this.revealThickness, this.revealMargin);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.destroyListeners();
   }
 }
