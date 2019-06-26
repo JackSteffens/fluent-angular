@@ -64,8 +64,6 @@ fluent-angular
 
 fluent-icon
 
-reveal
-
 rxjs
 Apache-2.0
                                Apache License
