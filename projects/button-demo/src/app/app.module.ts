@@ -1,8 +1,10 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+
 import {FluentButtonModule} from '../../../button/src/lib/button.module';
 import {FluentIconModule} from '../../../icon/src/lib/icon.module';
+import {FluentRevealModule} from '../../../reveal/src/lib/reveal.module';
 
 import {AppComponent} from './app.component';
 
@@ -14,7 +16,8 @@ import {AppComponent} from './app.component';
     BrowserModule,
     FormsModule,
     FluentButtonModule,
-    FluentIconModule
+    FluentIconModule,
+    FluentRevealModule
   ],
   providers: [],
   bootstrap: [AppComponent]

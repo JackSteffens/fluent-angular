@@ -134,19 +134,16 @@
     div {
       color: $Black;
       background-color: $Base;
-      transition-property: transform;
-      transition-duration: .3s;
-      transition-delay: .15s;
-      transition-timing-function: ease-out;
     }
 
     &:active {
       div {
         background-color: $BaseDark3;
-        transform: scale(.975);
-        transition-delay: 0s;
-        transition-duration: 0s;
       }
+
+      transform: scale(.975);
+      transition-delay: 0s;
+      transition-duration: 0s;
 
       &.fluent-primary > div {
         background-color: $PrimaryDark3;
@@ -161,7 +158,7 @@
       }
     }
 
-    &:hover {
+    &:hover:not([fluentReveal]):not([ng-reflect-fluent-reveal]) {
       div {
         border-color: $BaseDark3;
       }
@@ -179,14 +176,93 @@
       }
     }
 
-    &:focus:not(:hover):not(:active) {
+    &:hover[fluentReveal], :hover[ng-reflect-fluent-reveal] {
+      div {
+        background-color: $BaseDark1;
+      }
+
+      &.light-1 > div {
+        background-color: $Base;
+      }
+
+      &.light-2 > div {
+        background-color: $BaseLight1;
+      }
+
+      &.light-3 > div {
+        background-color: $BaseLight2;
+      }
+
+      &.fluent-primary {
+        div {
+          background-color: $PrimaryDark1;
+        }
+
+        &.light-1 > div {
+          background-color: $Primary;
+        }
+
+        &.light-2 > div {
+          background-color: $PrimaryLight1;
+        }
+
+        &.light-3 > div {
+          background-color: $PrimaryLight2;
+        }
+      }
+
+      &.fluent-accent {
+        div {
+          background-color: $AccentDark1;
+        }
+
+        &.light-1 > div {
+          background-color: $Accent;
+        }
+
+        &.light-2 > div {
+          background-color: $AccentLight1;
+        }
+
+        &.light-3 > div {
+          background-color: $AccentLight2;
+        }
+      }
+
+      &.fluent-warn {
+        div {
+          background-color: $WarnDark1;
+        }
+
+        &.light-1 > div {
+          background-color: $Warn;
+        }
+
+        &.light-2 > div {
+          background-color: $WarnLight1;
+        }
+
+        &.light-3 > div {
+          background-color: $WarnLight2;
+        }
+      }
+    }
+
+    &:focus:not(:hover):not(:active),
+    &[fluentReveal]:focus:not(:active),
+    &[ng-reflect-fluent-reveal]:focus:not(:active) {
       outline: 2px solid $Black;
     }
   }
 
   &[disabled] > div {
     color: $BaseDark3;
-    background-color: $Base;
+    background-color: $BaseLight1;
+  }
+
+  &[fluentReveal],
+  &[ng-reflect-fluent-reveal] {
+    padding: 0;
   }
 
   div {
@@ -195,6 +271,11 @@
     border-color: transparent;
     border-style: solid;
   }
+
+  transition-property: transform;
+  transition-duration: .3s;
+  transition-delay: .15s;
+  transition-timing-function: ease-out;
 
   padding: 1px;
   border: none;

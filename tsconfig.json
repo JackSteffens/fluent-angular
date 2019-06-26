@@ -31,6 +31,12 @@
       ],
       "fluent-icon/*": [
         "dist/fluent-icon/*"
+      ],
+      "reveal": [
+        "dist/reveal"
+      ],
+      "reveal/*": [
+        "dist/reveal/*"
       ]
     }
   }
