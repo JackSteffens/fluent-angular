@@ -18,7 +18,7 @@
 -->
 <fieldset>
   <legend>Basic Usage</legend>
-  <div style="display: flex; flex-direction: row;">
+  <div style="display: flex; flex-direction: row;flex-wrap: wrap;">
     <!-- default -->
     <div style="display: flex; flex-direction: column; justify-content: center; width:150px; align-items: stretch;">
       <button fluent-button [disabled]="isDisabled" class="light-3" (click)="onClick('Light 3')">
@@ -116,7 +116,7 @@
       </button>
     </div>
   </div>
-  <label><input type="checkbox" [(ngModel)]="isDisabled">Disabled {{isDisabled}}</label>
+  <label><input type="checkbox" [(ngModel)]="isDisabled">Disable buttons</label>
 </fieldset>
 
 <br>
@@ -164,29 +164,57 @@
     <i fluent-icon-name="ThreeBars"></i>
   </button>
 
-  <div style="height:200px; width:200px; background-color:rgba(255,0,0,.5);" fluentReveal>
-    Div including content with Reveal
+  <div style="height:200px; width:200px; background-color:rgba(255,0,0,.5);" fluentReveal [revealThickness]="5">
+    <span>Div including content with Reveal</span>
   </div>
 
-  <span fluentReveal [revealThickness]="2">Span with reveal, because why not</span>
+  <span fluentReveal>Span with reveal, because why not</span>
 
   <p><b>Generated with ngFor</b></p>
-  <table>
-    <tbody>
-    <tr *ngFor="let y of [0,1]">
-      <td *ngFor="let x of [1,2,3]">
-        <button fluent-button
-                fluentReveal
-                class="fluent-primary"
-                revealRadialColor="#00579C"
-                parentElement="coolFieldSet"
-                [revealThickness]="1">
-          Button {{x * y + x}}
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+
+  <div style="display: flex;flex-direction: row;flex-wrap: wrap;">
+    <button fluent-button
+            fluentReveal
+            [disabled]="isDisabled"
+            [fluentReveal]="isRevealEnabled"
+            [ngClass]="[mainColor, colorTint]"
+            parentElement="coolFieldSet"
+            [revealMargin]="1"
+            [revealThickness]="1"
+            *ngFor="let b of buttonList; index as i">
+      Button {{i}}
+    </button>
+  </div>
+
+  <div style="display:flex;flex-direction: row">
+    <div style="display:flex;flex-direction: column">
+      <label><input type="checkbox" [(ngModel)]="isRevealEnabled">Enable Reveal</label>
+      <label><input type="checkbox" [(ngModel)]="isDisabled">Disable buttons</label>
+    </div>
+
+    <div style="display:flex;flex-direction: column">
+      <label><input type="radio" name="mainColor" [(ngModel)]="mainColor" value="">Default</label>
+      <label><input type="radio" name="mainColor" [(ngModel)]="mainColor" value="fluent-primary">Primary</label>
+      <label><input type="radio" name="mainColor" [(ngModel)]="mainColor" value="fluent-accent">Accent</label>
+      <label><input type="radio" name="mainColor" [(ngModel)]="mainColor" value="fluent-warn">Warn</label>
+    </div>
+
+    <div style="display:flex;flex-direction: column">
+      <label><input type="radio" name="colorTint" [(ngModel)]="colorTint" value="light-3">Light 3</label>
+      <label><input type="radio" name="colorTint" [(ngModel)]="colorTint" value="light-2">Light 2</label>
+      <label><input type="radio" name="colorTint" [(ngModel)]="colorTint" value="light-1">Light 1</label>
+      <label><input type="radio" name="colorTint" [(ngModel)]="colorTint" value="">Default</label>
+      <label><input type="radio" name="colorTint" [(ngModel)]="colorTint" value="dark-1">Dark 1</label>
+      <label><input type="radio" name="colorTint" [(ngModel)]="colorTint" value="dark-2">Dark 2</label>
+      <label><input type="radio" name="colorTint" [(ngModel)]="colorTint" value="dark-3">Dark 3</label>
+    </div>
+
+    <label>
+      <input type="number" min="0" step="1" [(ngModel)]="buttonCount" (change)="onButtonCountChange()">
+      Button Count
+    </label>
+
+  </div>
 </fieldset>
 
 

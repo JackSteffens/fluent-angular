@@ -1,15 +1,18 @@
-import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
+import {Directive, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges} from '@angular/core';
 import {RevealService} from './reveal.service';
+import {Subscription} from 'rxjs';
 
 @Directive({
   selector: '[fluentReveal]',
 })
-export class FluentRevealDirective implements OnInit, OnDestroy {
+export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
   private borderElement;
   private shouldRender = true;
-  private mouseMoveListener: () => void;
-  private mouseOutListener: () => void;
+  private mouseMoveSubscription: Subscription;
+  private mouseLeaveSubscription: Subscription;
 
+  @Input()
+  public fluentReveal = true;
   @Input()
   public revealThickness = 1; // Larger than 0
   @Input()
@@ -110,44 +113,76 @@ export class FluentRevealDirective implements OnInit, OnDestroy {
     this.revealService.prepHostElementForReveal(this.hostElement.nativeElement, this.revealThickness, this.revealMargin);
     this.borderElement = this.revealService.constructBorderElement(this.revealThickness, this.revealBorderColor);
     this.revealService.clipBorderElementFrameShape(this.borderElement, this.revealThickness);
+    this.revealService.optimizeCSSChanges(this.borderElement);
     this.revealService.appendBorderElementToHostElement(this.hostElement.nativeElement, this.borderElement);
   }
 
   private initMouseEventListeners() {
-    let elem;
-    if (this.parentElement) {
-      elem = document.getElementById(this.parentElement);
-    } else {
-      elem = document;
-    }
-
+    const elem = this.parentElement ? document.getElementById(this.parentElement) : document;
     if (elem) {
-      this.mouseMoveListener = elem.addEventListener('mousemove', event => {
-        this.validatePositionAndRenderRevealBorder(event.x, event.y);
-      });
+      this.mouseLeaveSubscription = this.revealService.getMouseLeaveEventObservable(elem)
+        .subscribe(() => {
+          console.log('mouse leave on : ', this.parentElement || 'document');
+          this.clearRevealBorder();
+        });
 
-      this.mouseOutListener = elem.addEventListener('mouseout', () => {
-        this.clearRevealBorder();
-      });
+      this.mouseMoveSubscription = this.revealService.getMouseOverEventObservable(elem)
+        .subscribe((event: MouseEvent) => {
+          if (event) {
+            this.validatePositionAndRenderRevealBorder(event.x, event.y);
+          }
+        });
     } else {
       console.warn('Could not find element with id :', this.parentElement);
     }
   }
 
-  ngOnInit() {
-    this.initMouseEventListeners();
-    this.initRevealEffect();
+  // TODO Unfinished
+  destroyListeners() {
+    unsubscribeFromObservable(this.mouseMoveSubscription);
+    unsubscribeFromObservable(this.mouseLeaveSubscription);
+
+    const elem = this.parentElement ? document.getElementById(this.parentElement) : document;
+    this.revealService.cleanupRevealEventListener(elem);
+
+    function unsubscribeFromObservable(subscription: Subscription) {
+      subscription.unsubscribe();
+      subscription = null;
+    }
   }
 
   ngOnDestroy(): void {
-    destroyListener(this.mouseMoveListener);
-    destroyListener(this.mouseOutListener);
+    this.destroyListeners();
+  }
 
-    function destroyListener(listenerDestroyer: () => void) {
-      if (listenerDestroyer) {
-        listenerDestroyer();
-        listenerDestroyer = null;
-      }
+  toggleRevealOff(): void {
+    this.fluentReveal = false;
+    if (this.borderElement) {
+      this.destroyListeners();
+      this.clearRevealBorder();
+    }
+  }
+
+  toggleRevealOn(): void {
+    this.fluentReveal = true;
+    if (this.borderElement) {
+      this.initMouseEventListeners();
+    }
+  }
+
+  ngOnInit() {
+    this.initRevealEffect();
+    if (this.fluentReveal) {
+      this.initMouseEventListeners();
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const revealEnabled: boolean = changes.fluentReveal ? changes.fluentReveal.currentValue : this.fluentReveal;
+    if (revealEnabled === false) {
+      this.toggleRevealOff();
+    } else { // true or null (no value on attribute means ON)
+      this.toggleRevealOn();
     }
   }
 }
