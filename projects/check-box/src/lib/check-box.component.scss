@@ -25,9 +25,18 @@ label {
     cursor: pointer;
 
     &:active:hover {
-      div.check-box-wrapper {
+      div.check-box-wrapper:not(.indeterminate) {
         background-color: gray;
         border-color: transparent;
+      }
+
+      div.check-box-wrapper.indeterminate {
+        background-color: transparent;
+        border-color: gray;
+
+        .indeterminate-mark {
+          background-color: grey;
+        }
       }
     }
 
