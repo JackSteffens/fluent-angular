@@ -1,0 +1,18 @@
+<label>
+  <input type="checkbox"
+         [id]="id"
+         [required]="required"
+         [checked]="checked"
+         [disabled]="disabled"
+         [indeterminate]="indeterminate"
+         [attr.value]="value"
+         [attr.name]="name"
+         [attr.checked]="checked"
+         [attr.aria-label]="ariaLabel || null"
+         [attr.aria-labelledby]="ariaLabelledby"
+         [attr.aria-checked]="getAriaChecked()"
+         (change)="onInteractionEvent($event)"
+         (click)="onInputClick($event)">
+  <ng-content></ng-content>
+  checked : {{checked}}
+</label>

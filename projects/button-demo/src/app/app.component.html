@@ -232,4 +232,17 @@
   </div>
 </fieldset>
 
+<fieldset>
+  <legend>CheckBox</legend>
+
+  <div style="display: flex;flex-direction: column">
+    <label>
+      <input type="checkbox" [(ngModel)]="checkboxDemo">
+      regular checkbox
+    </label>
+
+    <fluent-check-box [(ngModel)]="checkboxDemo" name="whatever'">fluent checkbox</fluent-check-box>
+  </div>
+</fieldset>
+
 

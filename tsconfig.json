@@ -37,6 +37,12 @@
       ],
       "reveal/*": [
         "dist/reveal/*"
+      ],
+      "check-box": [
+        "dist/check-box"
+      ],
+      "check-box/*": [
+        "dist/check-box/*"
       ]
     }
   }
