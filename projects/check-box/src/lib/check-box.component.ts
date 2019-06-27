@@ -13,6 +13,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
  * Used the Angular Material checkbox component as reference to
  * how to implement a custom FormInput component
  * https://github.com/angular/components/blob/master/src/material/checkbox/checkbox.ts
+ * https://rangle.io/blog/angular-2-ngmodel-and-custom-form-components/
  */
 
 let countSequence = 0;
@@ -36,13 +37,14 @@ export class FluentCheckBoxChange {
 })
 export class FluentCheckBox implements OnInit, ControlValueAccessor {
   private isChecked = false;
+  private isIndeterminate: boolean = false;
   private UNIQUE_ID = `fluent-check-box-${++countSequence}`;
-  public indeterminate: boolean;
+
 
   @Input() disabled: boolean;
   @Input() value: string;
   @Input() name: string | null = null;
-  @Input() labelPosition: 'before' | 'after' = 'after';
+  @Input() labelBefore = false;
   @Input() required: boolean;
   @Input() id: string = this.UNIQUE_ID;
   @Input('aria-labelledby') ariaLabelledby: string | null = null;
@@ -58,8 +60,25 @@ export class FluentCheckBox implements OnInit, ControlValueAccessor {
     }
   }
 
+  /**
+   * Whether the checkbox is indeterminate. This is also known as "mixed" mode and can be used to
+   * represent a checkbox with three states, e.g. a checkbox that represents a nested list of
+   * checkable items. Note that whenever checkbox is manually clicked, indeterminate is immediately
+   * set to false.
+   */
+  @Input()
+  get indeterminate(): boolean { return this.isIndeterminate; }
+
+  set indeterminate(value: boolean) {
+    if (value !== this.isIndeterminate) {
+      this.isIndeterminate = value;
+      this.indeterminateChange.emit(this.isIndeterminate);
+    }
+  }
+
   /** Event emitted when the checkbox's `checked` value changes. */
   @Output() readonly change: EventEmitter<FluentCheckBoxChange> = new EventEmitter<FluentCheckBoxChange>();
+  @Output() readonly indeterminateChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private changeDetector: ChangeDetectorRef) {}
 

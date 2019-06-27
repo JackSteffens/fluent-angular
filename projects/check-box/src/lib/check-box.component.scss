@@ -1,0 +1,110 @@
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: .25em;
+
+  &.label-before {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    div.check-box-wrapper {
+      margin-left: .5em;
+    }
+  }
+
+  &:not(.label-before) {
+    div.check-box-wrapper {
+      margin-right: .5em;
+
+    }
+  }
+
+  &:not(.disabled) {
+    cursor: pointer;
+
+    &:active:hover {
+      div.check-box-wrapper {
+        background-color: gray;
+        border-color: transparent;
+      }
+    }
+
+    .indeterminate-mark {
+      background-color: black;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: grey;
+
+    div.check-box-wrapper {
+      &:not(.checked) {
+        border-color: darkgray;
+        background-color: transparent;
+      }
+
+      &.indeterminate {
+        border-color: darkgray;
+
+        .indeterminate-mark {
+          background-color: gray;
+        }
+      }
+    }
+
+  }
+
+  div.check-box-wrapper {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .indeterminate-mark {
+      display: none;
+      height: 60%;
+      width: 60%;
+    }
+
+    .check-mark {
+      display: none;
+      height: 80%;
+      width: 40%;
+      transform: rotate(45deg) translate(-1px, -1px);
+      border-width: 0;
+      border-right-width: 2px;
+      border-bottom-width: 2px;
+      border-style: solid;
+      border-color: white;
+    }
+
+    input {
+      display: none;
+    }
+
+    &.checked:not(.indeterminate) {
+      background-color: darkgray;
+      border-color: transparent;
+
+      .check-mark {
+        display: inline;
+      }
+    }
+
+    &.indeterminate {
+      border-color: gray;
+
+      .indeterminate-mark {
+        display: inline;
+      }
+    }
+  }
+}

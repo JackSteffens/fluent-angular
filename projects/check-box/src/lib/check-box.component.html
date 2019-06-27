@@ -1,18 +1,24 @@
-<label>
-  <input type="checkbox"
-         [id]="id"
-         [required]="required"
-         [checked]="checked"
-         [disabled]="disabled"
-         [indeterminate]="indeterminate"
-         [attr.value]="value"
-         [attr.name]="name"
-         [attr.checked]="checked"
-         [attr.aria-label]="ariaLabel || null"
-         [attr.aria-labelledby]="ariaLabelledby"
-         [attr.aria-checked]="getAriaChecked()"
-         (change)="onInteractionEvent($event)"
-         (click)="onInputClick($event)">
-  <ng-content></ng-content>
-  checked : {{checked}}
+<!-- We can move the checkbox and label text around by reversing flex-direction and justify-content -->
+<label [ngClass]="{'label-before':labelBefore, 'disabled':disabled}">
+  <div class="check-box-wrapper" [ngClass]="{'checked':checked, 'indeterminate':indeterminate}">
+    <div class="check-mark"></div>
+    <div class="indeterminate-mark"></div>
+    <input type="checkbox"
+           [id]="id"
+           [required]="required"
+           [checked]="checked"
+           [disabled]="disabled"
+           [indeterminate]="indeterminate"
+           [attr.value]="value"
+           [attr.name]="name"
+           [attr.checked]="checked"
+           [attr.aria-label]="ariaLabel || null"
+           [attr.aria-labelledby]="ariaLabelledby"
+           [attr.aria-checked]="getAriaChecked()"
+           (change)="onInteractionEvent($event)"
+           (click)="onInputClick($event)">
+  </div>
+  <span class="label">
+    <ng-content></ng-content>
+  </span>
 </label>
