@@ -43,6 +43,12 @@
       ],
       "check-box/*": [
         "dist/check-box/*"
+      ],
+      "acrylic": [
+        "dist/acrylic"
+      ],
+      "acrylic/*": [
+        "dist/acrylic/*"
       ]
     }
   }

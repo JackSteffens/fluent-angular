@@ -11,20 +11,13 @@ export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
   private mouseMoveSubscription: Subscription;
   private mouseLeaveSubscription: Subscription;
 
-  @Input()
-  public fluentReveal = true;
-  @Input()
-  public revealThickness = 1; // Larger than 0
-  @Input()
-  private revealBorderColor = 'transparent'; // Can be any color name, #HEX value or RGB(A) function (all as strings)
-  @Input()
-  public revealRadialColor = '#807f7f'; // Can be any color name, #HEX value or RGB(A) function (all as strings)
-  @Input()
-  public revealMargin = 0; // Larger or equal to 0
-  @Input()
-  public revealRadialDiameter = 100; // Larger than 0
-  @Input()
-  public parentElement: string;
+  @Input() fluentReveal = true;
+  @Input() revealThickness = 1; // Larger than 0
+  @Input() revealBorderColor = 'transparent'; // Can be any color name, #HEX value or RGB(A) function (all as strings)
+  @Input() revealRadialColor = '#807f7f'; // Can be any color name, #HEX value or RGB(A) function (all as strings)
+  @Input() revealMargin = 0; // Larger or equal to 0
+  @Input() revealRadialDiameter = 100; // Larger than 0
+  @Input() revealParentElementId: string;
 
   constructor(private hostElement: ElementRef,
               private revealService: RevealService) {
@@ -121,7 +114,7 @@ export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
    * TODO jsdoc
    */
   private initMouseEventListeners() {
-    const element: Element | Document = this.parentElement ? document.getElementById(this.parentElement) : document;
+    const element: Element | Document = this.revealParentElementId ? document.getElementById(this.revealParentElementId) : document;
     if (element) {
       this.mouseLeaveSubscription = this.revealService
         .getMouseLeaveEventObservable(element)
@@ -137,7 +130,7 @@ export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
           }
         });
     } else {
-      console.warn('Could not find element with id :', this.parentElement);
+      console.warn('Could not find element with id :', this.revealParentElementId);
     }
   }
 
@@ -148,7 +141,7 @@ export class FluentRevealDirective implements OnInit, OnDestroy, OnChanges {
     unsubscribeFromObservable(this.mouseMoveSubscription);
     unsubscribeFromObservable(this.mouseLeaveSubscription);
 
-    const elem = this.parentElement ? document.getElementById(this.parentElement) : document;
+    const elem = this.revealParentElementId ? document.getElementById(this.revealParentElementId) : document;
     this.revealService.cleanupRevealEventListener(elem);
 
     function unsubscribeFromObservable(subscription: Subscription) {

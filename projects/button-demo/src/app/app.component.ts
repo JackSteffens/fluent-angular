@@ -21,6 +21,8 @@ export class AppComponent {
   public checkboxIndeterminate = false;
   public checkboxChecked = false;
 
+  public backgroundBoxCount = Array(20);
+
   public onClick(text: string): void {
     console.log('clicked', text);
   }
