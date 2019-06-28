@@ -32,20 +32,35 @@ export class FluentAcrylicDirective implements OnInit {
 
     // TODO Check if this can be run in a service worker
     // setTimeout(() => {
+    this.calculateBlurBoundaries();
     html2canvas(this.parentElement, {
       ignoreElements: (element) => {
         return element.id === this.uniqueId;
       }
     }).then((canvas) => {
       this.acrylicBlurElement.appendChild(canvas);
-      this.initOffsetNumbers();
-      this.renderer.setStyle(this.acrylicBlurElement, 'left', `${this.offsetHorizontal}px`);
-      this.renderer.setStyle(this.acrylicBlurElement, 'top', `${this.offsetVertical}px`);
+      this.correctCanvasPosition();
+
+      // TODO WIP. Let the blur background scroll with its parent (if it requires so)
+      // this.parentElement.addEventListener(
+      //   'scroll',
+      //   (e) => {
+      //     console.log(e);
+      //     this.correctCanvasPosition();
+      //   },
+      //   {capture: true}
+      // );
     }, (error) => {
       console.error('Whoops', error);
     });
     // }, 1000);
 
+  }
+
+  correctCanvasPosition() {
+    this.calculateBlurBoundaries();
+    this.renderer.setStyle(this.acrylicBlurElement, 'left', `${this.offsetHorizontal}px`);
+    this.renderer.setStyle(this.acrylicBlurElement, 'top', `${this.offsetVertical}px`);
   }
 
   applyNoiseEffect(): void {
@@ -94,15 +109,15 @@ export class FluentAcrylicDirective implements OnInit {
    * FIXME Something goes wrong when the user scrolls before the canvas is rendered
    * Staying un-scrolled for a while makes everything seem as it should
    */
-  initOffsetNumbers() {
+  calculateBlurBoundaries() {
     const parentBoundingBox = this.parentElement.getBoundingClientRect();
     const hostBoundingBox = this.hostElement.getBoundingClientRect();
+
     const scrollVertical = window.pageYOffset || document.documentElement.scrollTop;
     const scrollHorizontal = window.pageXOffset || document.documentElement.scrollLeft;
-    this.offsetHorizontal = (parentBoundingBox.left - hostBoundingBox.left - scrollHorizontal);
-    this.offsetVertical = (parentBoundingBox.top - hostBoundingBox.top - scrollVertical);
-    console.log('offsetHorizontal', this.offsetHorizontal);
-    console.log('offsetVertical', this.offsetVertical);
+
+    this.offsetHorizontal = parentBoundingBox.left - hostBoundingBox.left - scrollHorizontal;
+    this.offsetVertical = parentBoundingBox.top - hostBoundingBox.top - scrollVertical;
   }
 
   initNecessaryElements() {

@@ -266,10 +266,13 @@
 
 <fieldset id="acrylic-parent-demo" style="position:relative;">
   <legend>Acrylic</legend>
-  <!-- Background checkerboard -->
-  <div style="width:400px; height:320px; background:red; display: flex; flex-wrap: wrap;">
-    <div *ngFor="let checker of backgroundBoxCount"
-         style="width:44px; height:44px; background-color:black; border:18px solid white;">
+
+  <div style="max-height:350px; overflow-y:scroll;">
+    <!-- Background checkerboard -->
+    <div style="width:400px; height:auto; background:red; display: flex; flex-wrap: wrap;">
+      <div *ngFor="let checker of backgroundBoxCount"
+           style="width:44px; height:44px; background-color:black; border:18px solid white;">
+      </div>
     </div>
   </div>
 
@@ -283,17 +286,17 @@
   </div>
   <div style="width:100px; height:250px; top:60px; left:160px;"
        fluentAcrylic
-       acrylicIntensity="2"
-       acrylicPosition="absolute"
-       acrylicParentElementId="acrylic-parent-demo">
-    <h3 style="text-align: center;">2x Blur</h3>
-  </div>
-  <div style="width:100px; height:250px; top:60px; left:270px;"
-       fluentAcrylic
        acrylicIntensity="5"
        acrylicPosition="absolute"
        acrylicParentElementId="acrylic-parent-demo">
     <h3 style="text-align: center;">5x Blur</h3>
+  </div>
+  <div style="width:100px; height:250px; top:60px; left:270px;"
+       fluentAcrylic
+       acrylicIntensity="10"
+       acrylicPosition="absolute"
+       acrylicParentElementId="acrylic-parent-demo">
+    <h3 style="text-align: center;">10x Blur</h3>
   </div>
 </fieldset>
 
