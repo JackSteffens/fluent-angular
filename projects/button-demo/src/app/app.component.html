@@ -256,6 +256,7 @@
       <fluent-check-box [(ngModel)]="checkboxChecked"
                         [labelBefore]="checkboxLabelBefore"
                         [disabled]="checkboxDisabled"
+                        [ngClass]="[mainColor, colorTint]"
                         [(indeterminate)]="checkboxIndeterminate">
         Fluent checkbox
       </fluent-check-box>
