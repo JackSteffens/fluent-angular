@@ -37,11 +37,12 @@ export class FluentCheckBoxChange {
 })
 export class FluentCheckBox implements OnInit, ControlValueAccessor {
   private isChecked = false;
-  private isIndeterminate: boolean = false;
+  private isIndeterminate = false;
   private UNIQUE_ID = `fluent-check-box-${++countSequence}`;
-
+  public isFocused = false;
 
   @Input() disabled: boolean;
+  @Input() tabindex = this.disabled ? -1 : 0;
   @Input() value: string;
   @Input() name: string | null = null;
   @Input() labelBefore = false;
@@ -120,6 +121,16 @@ export class FluentCheckBox implements OnInit, ControlValueAccessor {
       this.checked = !this.checked;
       this.emitChangeEvent();
     }
+  }
+
+  public onInputKeyPress() {
+    if (!this.disabled) {
+      this.isFocused = true;
+    }
+  }
+
+  public onInputBlur(): void {
+    this.isFocused = false;
   }
 
   private emitChangeEvent() {
