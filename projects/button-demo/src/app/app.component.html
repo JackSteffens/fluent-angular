@@ -116,7 +116,7 @@
       </button>
     </div>
   </div>
-  <label><input type="checkbox" [(ngModel)]="isDisabled">Disable buttons</label>
+  <fluent-check-box [(ngModel)]="isDisabled">Disable buttons</fluent-check-box>
 </fieldset>
 
 <br>
@@ -189,8 +189,8 @@
 
   <div style="display:flex;flex-direction: row">
     <div style="display:flex;flex-direction: column">
-      <label><input type="checkbox" [(ngModel)]="isRevealEnabled">Enable Reveal</label>
-      <label><input type="checkbox" [(ngModel)]="isDisabled">Disable buttons</label>
+      <fluent-check-box [(ngModel)]="isRevealEnabled">Enable Reveal</fluent-check-box>
+      <fluent-check-box [(ngModel)]="isDisabled">Disable buttons</fluent-check-box>
     </div>
 
     <div style="display:flex;flex-direction: column">
@@ -229,6 +229,38 @@
       </label>
     </div>
 
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend>CheckBox</legend>
+
+  <div style="display: flex; flex-direction: row;">
+    <!-- Options -->
+    <div style="display: flex; flex-direction: column; width: fit-content">
+      <fluent-check-box [(ngModel)]="checkboxDisabled">Disable checkbox</fluent-check-box>
+      <fluent-check-box [(ngModel)]="checkboxLabelBefore">Label before</fluent-check-box>
+      <fluent-check-box [(ngModel)]="checkboxIndeterminate">Indeterminate</fluent-check-box>
+    </div>
+
+    <!-- Preview -->
+    <div style="display: flex; flex-direction: column; width: fit-content">
+      <label>
+        <input type="checkbox"
+               [(ngModel)]="checkboxChecked"
+               [disabled]="checkboxDisabled"
+               [indeterminate]="checkboxIndeterminate">
+        Regular checkbox
+      </label>
+
+      <fluent-check-box [(ngModel)]="checkboxChecked"
+                        [labelBefore]="checkboxLabelBefore"
+                        [disabled]="checkboxDisabled"
+                        [ngClass]="[mainColor, colorTint]"
+                        [(indeterminate)]="checkboxIndeterminate">
+        Fluent checkbox
+      </fluent-check-box>
+    </div>
   </div>
 </fieldset>
 

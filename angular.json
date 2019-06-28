@@ -235,6 +235,41 @@
           }
         }
       }
+    },
+    "check-box": {
+      "root": "projects/check-box",
+      "sourceRoot": "projects/check-box/src",
+      "projectType": "library",
+      "prefix": "fluent",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/check-box/tsconfig.lib.json",
+            "project": "projects/check-box/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/check-box/src/test.ts",
+            "tsConfig": "projects/check-box/tsconfig.spec.json",
+            "karmaConfig": "projects/check-box/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/check-box/tsconfig.lib.json",
+              "projects/check-box/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "button"

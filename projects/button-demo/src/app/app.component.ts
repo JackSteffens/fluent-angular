@@ -1,4 +1,4 @@
-import {Component, SimpleChanges} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,11 @@ export class AppComponent {
   public revealRadialDiameter = 100;
   public revealBorderThickness = 1;
   public revealMargin = 1;
+
+  public checkboxDisabled = false;
+  public checkboxLabelBefore = false;
+  public checkboxIndeterminate = false;
+  public checkboxChecked = false;
 
   public onClick(text: string): void {
     console.log('clicked', text);

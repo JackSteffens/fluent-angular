@@ -2,6 +2,8 @@
 
 :host {
   &:not([disabled]) {
+    cursor: pointer;
+
     &.fluent-primary > div {
       color: $White;
       background-color: $Primary;
@@ -142,6 +144,7 @@
       }
 
       transform: scale(.975);
+      transform-origin: center center;
       transition-delay: 0s;
       transition-duration: 0s;
 

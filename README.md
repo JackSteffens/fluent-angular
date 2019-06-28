@@ -4,24 +4,26 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve button-demo` for a dev server that runs the `/projects/button-demo` app. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+`button-demo` contains all the components and also serves as the documentation/demo page that runs on github-pages.
+
+## Generating a new component
+
+Run `ng generate library COMPONENT-NAME -p fluent` to create a new component that uses the `fluent-` prefix. These components are stored in the `/projects` folder.
+Testing this component in the `button-demo` app requires the component module to be added in the `app.module.ts` imports.
 
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Build for github-pages
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `ng build button-demo --prod --baseHref="/fluent-angular/"` to build the project suitable for github-pages. The build artifacts will be stored in the `/dist/button-demo` directory.
+Move these files over to `/docs` if you need to update the github page.
 
-## Running unit tests
+## Progress
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+See the Trello board for what has been implemented and what has yet to be done.
+https://trello.com/b/OOfoj2WU/angular-fluent-ui

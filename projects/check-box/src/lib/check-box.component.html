@@ -1,0 +1,26 @@
+<label [ngClass]="{'label-before':labelBefore, 'disabled':disabled, 'focused':isFocused}">
+  <div class="check-box-wrapper" [ngClass]="{'checked':checked, 'indeterminate':indeterminate}">
+    <div class="check-mark"></div>
+    <div class="indeterminate-mark"></div>
+    <input type="checkbox"
+           [id]="id"
+           [required]="required"
+           [checked]="checked"
+           [disabled]="disabled"
+           [indeterminate]="indeterminate"
+           tabindex="0"
+           [attr.value]="value"
+           [attr.name]="name"
+           [attr.checked]="checked"
+           [attr.aria-label]="ariaLabel || null"
+           [attr.aria-labelledby]="ariaLabelledby"
+           [attr.aria-checked]="getAriaChecked()"
+           (keyup)="onInputKeyPress()"
+           (blur)="onInputBlur()"
+           (change)="onInteractionEvent($event)"
+           (click)="onInputClick($event)">
+  </div>
+  <span class="label">
+    <ng-content></ng-content>
+  </span>
+</label>
