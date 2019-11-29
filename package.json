@@ -2,6 +2,7 @@
   "name": "fluent-angular",
   "version": "0.0.0",
   "scripts": {
+    "demo" : "ng serve fluent-demo",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

@@ -4,32 +4,32 @@
   "newProjectRoot": "projects",
   "projects": {
     "button": {
-      "root": "projects/button",
-      "sourceRoot": "projects/button/src",
+      "root": "button",
+      "sourceRoot": "button/src",
       "projectType": "library",
       "prefix": "fluent",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/button/tsconfig.lib.json",
-            "project": "projects/button/ng-package.json"
+            "tsConfig": "button/tsconfig.lib.json",
+            "project": "button/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/button/src/test.ts",
-            "tsConfig": "projects/button/tsconfig.spec.json",
-            "karmaConfig": "projects/button/karma.conf.js"
+            "main": "button/src/test.ts",
+            "tsConfig": "button/tsconfig.spec.json",
+            "karmaConfig": "button/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/button/tsconfig.lib.json",
-              "projects/button/tsconfig.spec.json"
+              "button/tsconfig.lib.json",
+              "button/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -38,9 +38,9 @@
         }
       }
     },
-    "button-demo": {
-      "root": "projects/button-demo/",
-      "sourceRoot": "projects/button-demo/src",
+    "fluent-demo": {
+      "root": "fluent-demo/",
+      "sourceRoot": "fluent-demo/src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
@@ -48,17 +48,17 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/button-demo",
-            "index": "projects/button-demo/src/index.html",
-            "main": "projects/button-demo/src/main.ts",
-            "polyfills": "projects/button-demo/src/polyfills.ts",
-            "tsConfig": "projects/button-demo/tsconfig.app.json",
+            "outputPath": "dist/fluent-demo",
+            "index": "fluent-demo/src/index.html",
+            "main": "fluent-demo/src/main.ts",
+            "polyfills": "fluent-demo/src/polyfills.ts",
+            "tsConfig": "fluent-demo/tsconfig.app.json",
             "assets": [
-              "projects/button-demo/src/favicon.ico",
-              "projects/button-demo/src/assets"
+              "fluent-demo/src/favicon.ico",
+              "fluent-demo/src/assets"
             ],
             "styles": [
-              "projects/button-demo/src/styles.css"
+              "fluent-demo/src/styles.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -67,8 +67,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/button-demo/src/environments/environment.ts",
-                  "with": "projects/button-demo/src/environments/environment.prod.ts"
+                  "replace": "fluent-demo/src/environments/environment.ts",
+                  "with": "fluent-demo/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -93,34 +93,34 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "button-demo:build"
+            "browserTarget": "fluent-demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "button-demo:build:production"
+              "browserTarget": "fluent-demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "button-demo:build"
+            "browserTarget": "fluent-demo:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/button-demo/src/test.ts",
-            "polyfills": "projects/button-demo/src/polyfills.ts",
-            "tsConfig": "projects/button-demo/tsconfig.spec.json",
-            "karmaConfig": "projects/button-demo/karma.conf.js",
+            "main": "fluent-demo/src/test.ts",
+            "polyfills": "fluent-demo/src/polyfills.ts",
+            "tsConfig": "fluent-demo/tsconfig.spec.json",
+            "karmaConfig": "fluent-demo/karma.conf.js",
             "styles": [
-              "projects/button-demo/src/styles.css"
+              "fluent-demo/src/styles.css"
             ],
             "scripts": [],
             "assets": [
-              "projects/button-demo/src/favicon.ico",
-              "projects/button-demo/src/assets"
+              "fluent-demo/src/favicon.ico",
+              "fluent-demo/src/assets"
             ]
           }
         },
@@ -128,8 +128,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/button-demo/tsconfig.app.json",
-              "projects/button-demo/tsconfig.spec.json"
+              "fluent-demo/tsconfig.app.json",
+              "fluent-demo/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -138,27 +138,27 @@
         }
       }
     },
-    "button-demo-e2e": {
-      "root": "projects/button-demo-e2e/",
+    "fluent-demo-e2e": {
+      "root": "fluent-demo-e2e/",
       "projectType": "application",
       "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "projects/button-demo-e2e/protractor.conf.js",
-            "devServerTarget": "button-demo:serve"
+            "protractorConfig": "fluent-demo-e2e/protractor.conf.js",
+            "devServerTarget": "fluent-demo:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "button-demo:serve:production"
+              "devServerTarget": "fluent-demo:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": "projects/button-demo-e2e/tsconfig.e2e.json",
+            "tsConfig": "fluent-demo-e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
@@ -167,32 +167,32 @@
       }
     },
     "fluent-icon": {
-      "root": "projects/fluent-icon",
-      "sourceRoot": "projects/fluent-icon/src",
+      "root": "fluent-icon",
+      "sourceRoot": "fluent-icon/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/fluent-icon/tsconfig.lib.json",
-            "project": "projects/fluent-icon/ng-package.json"
+            "tsConfig": "fluent-icon/tsconfig.lib.json",
+            "project": "fluent-icon/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/fluent-icon/src/test.ts",
-            "tsConfig": "projects/fluent-icon/tsconfig.spec.json",
-            "karmaConfig": "projects/fluent-icon/karma.conf.js"
+            "main": "fluent-icon/src/test.ts",
+            "tsConfig": "fluent-icon/tsconfig.spec.json",
+            "karmaConfig": "fluent-icon/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/fluent-icon/tsconfig.lib.json",
-              "projects/fluent-icon/tsconfig.spec.json"
+              "fluent-icon/tsconfig.lib.json",
+              "fluent-icon/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -202,32 +202,32 @@
       }
     },
     "reveal": {
-      "root": "projects/reveal",
-      "sourceRoot": "projects/reveal/src",
+      "root": "reveal",
+      "sourceRoot": "reveal/src",
       "projectType": "library",
       "prefix": "fluent",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/reveal/tsconfig.lib.json",
-            "project": "projects/reveal/ng-package.json"
+            "tsConfig": "reveal/tsconfig.lib.json",
+            "project": "reveal/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/reveal/src/test.ts",
-            "tsConfig": "projects/reveal/tsconfig.spec.json",
-            "karmaConfig": "projects/reveal/karma.conf.js"
+            "main": "reveal/src/test.ts",
+            "tsConfig": "reveal/tsconfig.spec.json",
+            "karmaConfig": "reveal/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/reveal/tsconfig.lib.json",
-              "projects/reveal/tsconfig.spec.json"
+              "reveal/tsconfig.lib.json",
+              "reveal/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -237,32 +237,32 @@
       }
     },
     "check-box": {
-      "root": "projects/check-box",
-      "sourceRoot": "projects/check-box/src",
+      "root": "check-box",
+      "sourceRoot": "check-box/src",
       "projectType": "library",
       "prefix": "fluent",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/check-box/tsconfig.lib.json",
-            "project": "projects/check-box/ng-package.json"
+            "tsConfig": "check-box/tsconfig.lib.json",
+            "project": "check-box/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/check-box/src/test.ts",
-            "tsConfig": "projects/check-box/tsconfig.spec.json",
-            "karmaConfig": "projects/check-box/karma.conf.js"
+            "main": "check-box/src/test.ts",
+            "tsConfig": "check-box/tsconfig.spec.json",
+            "karmaConfig": "check-box/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/check-box/tsconfig.lib.json",
-              "projects/check-box/tsconfig.spec.json"
+              "check-box/tsconfig.lib.json",
+              "check-box/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

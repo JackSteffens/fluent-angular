@@ -1,0 +1,303 @@
+@import "../../../core/style/fluent-colors";
+
+label {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: .25em;
+  color: black;
+
+  &.focused {
+    outline: 2px solid black;
+  }
+
+  &.label-before {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+
+    div.check-box-wrapper {
+      margin-left: .5em;
+    }
+  }
+
+  &:not(.label-before) {
+    div.check-box-wrapper {
+      margin-right: .5em;
+    }
+  }
+
+  &:not(.disabled) {
+    cursor: pointer;
+
+    &:active:hover {
+      div.check-box-wrapper:not(.indeterminate) {
+        background-color: $BaseDark3;
+        border-color: transparent;
+      }
+
+      div.check-box-wrapper.indeterminate {
+        background-color: transparent;
+        border-color: $BaseDark3;
+
+        .indeterminate-mark {
+          background-color: $BaseDark3;
+        }
+      }
+    }
+
+    .indeterminate-mark {
+      background-color: black;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: $BaseDark3;
+
+    div.check-box-wrapper {
+      &:not(.checked) {
+        border-color: $BaseDark2;
+        background-color: transparent;
+      }
+
+      &.indeterminate {
+        border-color: $BaseDark2;
+
+        .indeterminate-mark {
+          background-color: $BaseDark3;
+        }
+      }
+    }
+  }
+
+  div.check-box-wrapper {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .indeterminate-mark {
+      display: none;
+      height: 60%;
+      width: 60%;
+    }
+
+    .check-mark {
+      display: none;
+      height: 80%;
+      width: 40%;
+      transform: rotate(45deg) translate(-1px, -1px);
+      border-width: 0;
+      border-right-width: 2px;
+      border-bottom-width: 2px;
+      border-style: solid;
+      border-color: white;
+    }
+
+    input {
+      width: 0;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      opacity: 0;
+    }
+
+    &.checked:not(.indeterminate) {
+      background-color: $BaseDark2;
+      border-color: transparent;
+
+      .check-mark {
+        display: inline;
+      }
+    }
+
+    &.indeterminate {
+      border-color: $BaseDark3;
+
+      .indeterminate-mark {
+        display: inline;
+      }
+    }
+  }
+}
+
+/**
+  Theming for the fluent color palette
+  TODO Replace with CSS-Variables or a theming service once that's ready
+ */
+:host {
+  &.fluent-primary {
+    label {
+      &:not(.disabled) {
+        &:active:hover {
+          div.check-box-wrapper:not(.indeterminate) {
+            background-color: $PrimaryDark1;
+          }
+
+          div.check-box-wrapper.indeterminate {
+            .indeterminate-mark {
+              background-color: $Primary;
+            }
+          }
+        }
+
+        div.check-box-wrapper.indeterminate {
+          border-color: $Primary;
+
+          .indeterminate-mark {
+            background-color: $PrimaryDark3;
+          }
+        }
+      }
+
+      &.disabled {
+        div.check-box-wrapper {
+          &:not(.checked) {
+            border-color: $PrimaryLight3;
+          }
+
+          &.checked:not(.indeterminate) {
+            background-color: $PrimaryLight3;
+          }
+
+          &.indeterminate {
+            border-color: $PrimaryLight3;
+
+            .indeterminate-mark {
+              background-color: $PrimaryLight3;
+            }
+          }
+        }
+      }
+
+      div.check-box-wrapper {
+        &.checked:not(.indeterminate) {
+          background-color: $Primary;
+        }
+
+        &.indeterminate {
+          border-color: $Primary;
+        }
+      }
+    }
+  }
+
+  &.fluent-warn {
+    label {
+      &:not(.disabled) {
+        &:active:hover {
+          div.check-box-wrapper:not(.indeterminate) {
+            background-color: $WarnDark1;
+          }
+
+          div.check-box-wrapper.indeterminate {
+            .indeterminate-mark {
+              background-color: $Warn;
+            }
+          }
+        }
+
+        div.check-box-wrapper.indeterminate {
+          border-color: $Warn;
+
+          .indeterminate-mark {
+            background-color: $WarnDark3;
+          }
+        }
+      }
+
+      &.disabled {
+        div.check-box-wrapper {
+          &:not(.checked) {
+            border-color: $WarnLight3;
+          }
+
+          &.checked:not(.indeterminate) {
+            background-color: $WarnLight3;
+          }
+
+          &.indeterminate {
+            border-color: $WarnLight3;
+
+            .indeterminate-mark {
+              background-color: $WarnLight3;
+            }
+          }
+        }
+      }
+
+      div.check-box-wrapper {
+        &.checked:not(.indeterminate) {
+          background-color: $Warn;
+        }
+
+        &.indeterminate {
+          border-color: $Warn;
+        }
+      }
+    }
+  }
+
+  &.fluent-accent {
+    label {
+      &:not(.disabled) {
+        &:active:hover {
+          div.check-box-wrapper:not(.indeterminate) {
+            background-color: $AccentDark1;
+          }
+
+          div.check-box-wrapper.indeterminate {
+            .indeterminate-mark {
+              background-color: $Accent;
+            }
+          }
+        }
+
+        div.check-box-wrapper.indeterminate {
+          border-color: $Accent;
+
+          .indeterminate-mark {
+            background-color: $AccentDark3;
+          }
+        }
+      }
+
+      &.disabled {
+        div.check-box-wrapper {
+          &:not(.checked) {
+            border-color: $AccentLight3;
+          }
+
+          &.checked:not(.indeterminate) {
+            background-color: $AccentLight3;
+          }
+
+          &.indeterminate {
+            border-color: $AccentLight3;
+
+            .indeterminate-mark {
+              background-color: $AccentLight3;
+            }
+          }
+        }
+      }
+
+      div.check-box-wrapper {
+        &.checked:not(.indeterminate) {
+          background-color: $Accent;
+        }
+
+        &.indeterminate {
+          border-color: $Accent;
+        }
+      }
+    }
+  }
+}
