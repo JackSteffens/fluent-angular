@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve fluent-demo` for a dev server that runs the `./fluent-demo` app. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server that runs the `./fluent-demo` app. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 `fluent-demo` contains all the components and also serves as the documentation/demo page that runs on github-pages.
 
 ## Generating a new component
@@ -22,8 +22,6 @@ Run `ng build fluent-demo --prod --baseHref="/fluent-angular/"` to build the pro
 Move these files over to `/docs` if you need to update the github page.
 
 ## Progress
-
-
 
 See the Trello board for what has been implemented and what has yet to be done.
 https://trello.com/b/OOfoj2WU/angular-fluent-ui
