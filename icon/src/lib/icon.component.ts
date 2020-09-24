@@ -1,6 +1,5 @@
 import {Attribute, Component} from '@angular/core';
-// FIXME Not sure if this is the best way to import json performance wise
-import * as nameList from './icon.json';
+import {Icon} from './icon';
 
 @Component({
   selector: 'i[fluent-icon], i[fluent-icon-name]',
@@ -14,7 +13,7 @@ export class FluentIcon {
     this.glyph = hex;
 
     if (glyphName && glyphName !== '') {
-      const glyphHex: string = nameList['default'][glyphName];
+      const glyphHex: string = Icon[glyphName];
       const num: number = parseInt(glyphHex, 16);
       this.glyph = String.fromCharCode(num);
     }
