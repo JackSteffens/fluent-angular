@@ -41,7 +41,7 @@ export class FluentCheckBox implements OnInit, ControlValueAccessor {
   private UNIQUE_ID = `fluent-check-box-${++countSequence}`;
   public isFocused = false;
 
-  @Input() disabled: boolean;
+  @Input() disabled = false;
   @Input() tabindex = this.disabled ? -1 : 0;
   @Input() value: string;
   @Input() name: string | null = null;

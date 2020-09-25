@@ -1,20 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CheckBoxComponent } from './check-box.component';
+import { FluentCheckBox } from './check-box.component';
 
 describe('CheckBoxComponent', () => {
-  let component: CheckBoxComponent;
-  let fixture: ComponentFixture<CheckBoxComponent>;
+  let component: FluentCheckBox;
+  let fixture: ComponentFixture<FluentCheckBox>;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ CheckBoxComponent ]
+      declarations: [FluentCheckBox]
     })
-    .compileComponents();
-  }));
+      .compileComponents();
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CheckBoxComponent);
+    fixture = TestBed.createComponent(FluentCheckBox);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

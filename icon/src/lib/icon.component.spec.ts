@@ -1,20 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FluentIconComponent } from './fluent-icon.component';
+import { FluentIcon } from './icon.component';
 
 describe('FluentIconComponent', () => {
-  let component: FluentIconComponent;
-  let fixture: ComponentFixture<FluentIconComponent>;
+  let component: FluentIcon;
+  let fixture: ComponentFixture<FluentIcon>;
 
-  beforeEach(async(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [ FluentIconComponent ]
+      declarations: [FluentIcon]
     })
-    .compileComponents();
-  }));
+      .compileComponents();
+  });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FluentIconComponent);
+    fixture = TestBed.createComponent(FluentIcon);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
