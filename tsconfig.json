@@ -12,7 +12,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es5", // Change to es2015 if you want to decrease bundle size and end support for IE11
     "typeRoots": [
       "node_modules/@types"
     ],
@@ -27,11 +27,11 @@
       "button/*": [
         "dist/button/*"
       ],
-      "fluent-icon": [
-        "dist/fluent-icon"
+      "icon": [
+        "dist/icon"
       ],
-      "fluent-icon/*": [
-        "dist/fluent-icon/*"
+      "icon/*": [
+        "dist/icon/*"
       ],
       "reveal": [
         "dist/reveal"
