@@ -4,37 +4,37 @@
   "newProjectRoot": "projects",
   "projects": {
     "button": {
-      "root": "button",
-      "sourceRoot": "button/src",
+      "root": "components/button",
+      "sourceRoot": "components/button/src",
       "projectType": "library",
       "prefix": "fluent",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "button/tsconfig.lib.json",
-            "project": "button/ng-package.json"
+            "tsConfig": "components/button/tsconfig.lib.json",
+            "project": "components/button/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "button/tsconfig.lib.prod.json"
+              "tsConfig": "components/button/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "button/src/test.ts",
-            "tsConfig": "button/tsconfig.spec.json",
-            "karmaConfig": "button/karma.conf.js"
+            "main": "components/button/src/test.ts",
+            "tsConfig": "components/button/tsconfig.spec.json",
+            "karmaConfig": "components/button/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "button/tsconfig.lib.json",
-              "button/tsconfig.spec.json"
+              "components/button/tsconfig.lib.json",
+              "components/button/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -176,37 +176,37 @@
       }
     },
     "icon": {
-      "root": "icon",
-      "sourceRoot": "icon/src",
+      "root": "components/icon",
+      "sourceRoot": "components/icon/src",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "icon/lib/tsconfig.lib.json",
-            "project": "icon/ng-package.json"
+            "tsConfig": "components/icon/lib/tsconfig.lib.json",
+            "project": "components/icon/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "icon/tsconfig.lib.prod.json"
+              "tsConfig": "components/icon/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "icon/src/test.ts",
-            "tsConfig": "icon/tsconfig.spec.json",
-            "karmaConfig": "icon/karma.conf.js"
+            "main": "components/icon/src/test.ts",
+            "tsConfig": "components/icon/tsconfig.spec.json",
+            "karmaConfig": "components/icon/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "icon/tsconfig.lib.json",
-              "icon/tsconfig.spec.json"
+              "components/icon/tsconfig.lib.json",
+              "components/icon/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -216,37 +216,37 @@
       }
     },
     "reveal": {
-      "root": "reveal",
-      "sourceRoot": "reveal/src",
+      "root": "components/reveal",
+      "sourceRoot": "components/reveal/src",
       "projectType": "library",
       "prefix": "fluent",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "reveal/tsconfig.lib.json",
-            "project": "reveal/ng-package.json"
+            "tsConfig": "components/reveal/tsconfig.lib.json",
+            "project": "components/reveal/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "reveal/tsconfig.lib.prod.json"
+              "tsConfig": "components/reveal/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "reveal/src/test.ts",
-            "tsConfig": "reveal/tsconfig.spec.json",
-            "karmaConfig": "reveal/karma.conf.js"
+            "main": "components/reveal/src/test.ts",
+            "tsConfig": "components/reveal/tsconfig.spec.json",
+            "karmaConfig": "components/reveal/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "reveal/tsconfig.lib.json",
-              "reveal/tsconfig.spec.json"
+              "components/reveal/tsconfig.lib.json",
+              "components/reveal/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -256,37 +256,37 @@
       }
     },
     "check-box": {
-      "root": "check-box",
-      "sourceRoot": "check-box/src",
+      "root": "components/check-box",
+      "sourceRoot": "components/check-box/src",
       "projectType": "library",
       "prefix": "fluent",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "check-box/tsconfig.lib.json",
-            "project": "check-box/ng-package.json"
+            "tsConfig": "components/check-box/tsconfig.lib.json",
+            "project": "components/check-box/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "check-box/tsconfig.lib.prod.json"
+              "tsConfig": "components/check-box/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "check-box/src/test.ts",
-            "tsConfig": "check-box/tsconfig.spec.json",
-            "karmaConfig": "check-box/karma.conf.js"
+            "main": "components/check-box/src/test.ts",
+            "tsConfig": "components/check-box/tsconfig.spec.json",
+            "karmaConfig": "components/check-box/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "check-box/tsconfig.lib.json",
-              "check-box/tsconfig.spec.json"
+              "components/check-box/tsconfig.lib.json",
+              "components/check-box/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

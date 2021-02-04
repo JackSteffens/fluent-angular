@@ -2,10 +2,10 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
-import {FluentButtonModule} from '../../../button/src/lib/button.module';
-import {FluentIconModule} from '../../../icon/src/lib/icon.module';
-import {FluentRevealModule} from '../../../reveal/src/lib/reveal.module';
-import {FluentCheckBoxModule} from '../../../check-box/src/lib/check-box.module';
+import {FluentButtonModule} from '../../../components/button/src/lib/button.module';
+import {FluentIconModule} from '../../../components/icon/src/lib/icon.module';
+import {FluentRevealModule} from '../../../components/reveal/src/lib/reveal.module';
+import {FluentCheckBoxModule} from '../../../components/check-box/src/lib/check-box.module';
 
 import {AppComponent} from './app.component';
 
